@@ -34,7 +34,7 @@ function App() {
   return (
     <>
 
-      <BrowserRouter basename="/unlock_cinema">
+      <BrowserRouter >
         <Suspense fallback={<Loader />}>
           <AppRoutes />
         </Suspense>

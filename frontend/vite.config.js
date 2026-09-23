@@ -14,7 +14,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-   base: `/unlock_cinema/`,
+   base: `/`,
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
