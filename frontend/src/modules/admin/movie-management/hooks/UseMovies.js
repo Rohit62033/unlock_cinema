@@ -5,7 +5,7 @@ import {
   getMoviesAPI
 }
 from '../api/getMovies.api'
-
+ 
 export const useMovies =
   (filters) => {
 

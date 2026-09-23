@@ -1,6 +1,4 @@
 import { useState } from 'react'
-
-import { useMovies } from '../hooks/useMovies.js'
 import MoviePageHeader from '../components/header/MoviePageHeader.jsx'
 import MovieTable from '../components/table/MovieTable.jsx'
 import MoviePagination from '../components/pagination/MoviePagination.jsx'
@@ -8,6 +6,7 @@ import MovieDashboardOverview from '../components/header/MovieDashboardOverview 
 import QuickCastManagement from '../components/cast/QuickCastManagement.jsx'
 import RecentUpdates from '../components/activity/RecentUpdates.jsx'
 import TopHeader from '../../shared/layout/components/TopHeader.jsx'
+import { useMovies } from '../hooks/UseMovies.js'
 
 
 
