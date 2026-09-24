@@ -8,10 +8,6 @@ import RecentUpdates from '../components/activity/RecentUpdates.jsx'
 import TopHeader from '../../shared/layout/components/TopHeader.jsx'
 import { useMovies } from '../hooks/UseMovies.js'
 
-
-
-
-
 const MovieManagementPage = () => {
 
   const [search, setSearch] =

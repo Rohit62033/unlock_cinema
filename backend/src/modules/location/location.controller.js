@@ -1,3 +1,4 @@
+import { setCityCookie } from "../../utils/cookies.js";
 import { autoDetectLocationService, searchCitiesService } from "./location.service.js";
 
 export const setUserLocation = (req, res) => {
@@ -7,12 +8,14 @@ export const setUserLocation = (req, res) => {
     return res.status(400).json({ message: "City required" });
   }
 
-  res.cookie("city", city, {
-    httpOnly: false,
-    sameSite: "lax",
-    secure: false,   // true in production (HTTPS)
-    maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year
-  });
+  // res.cookie("city", city, {
+  //   httpOnly: false,
+  //   sameSite: "lax",
+  //   secure: false,   // true in production (HTTPS)
+  //   maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year
+  // });
+
+  setCityCookie(res, city)
 
   return res.json({
     success: true,
@@ -28,11 +31,13 @@ export const autoDetectLocation = async (req, res, next) => {
     const city = await autoDetectLocationService(latitude, longitude)
 
     //  Set cookie
-    res.cookie("city", city, {
-      httpOnly: false,
-      sameSite: "lax",
-      maxAge: 1000 * 60 * 60 * 24 * 365
-    });
+    // res.cookie("city", city, {
+    //   httpOnly: false,
+    //   sameSite: "lax",
+    //   maxAge: 1000 * 60 * 60 * 24 * 365
+    // });
+
+    setCityCookie(res, city)
 
     return res.json({
       success: true,
@@ -49,7 +54,7 @@ export const searchCities = async (req, res, next) => {
     const { q } = req.body
 
     const result = await searchCitiesService(q)
-    
+
     return res.json(result)
   } catch (error) {
     next(error)
