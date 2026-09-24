@@ -5,7 +5,6 @@ import AppRoutes from './routes/AppRoutes.jsx'
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { fetchCurrentUser } from "./store/auth/authThunks.js";
-import { getCookie } from "./util/getCookie.js";
 import { openDrawer, setLocation } from "./store/location/locationSlice.js";
 
 // Global Loader (important for lazy loading)
@@ -21,14 +20,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const city = getCookie("city")
+    const savedCity = localStorage.getItem("city");
 
-    if (city) {
-      dispatch(setLocation(city))
+    if (savedCity) {
+      dispatch(setLocation(savedCity));
     } else {
-      dispatch(openDrawer())
+      dispatch(openDrawer());
     }
-  }, [])
+  }, [dispatch]);
 
 
   return (

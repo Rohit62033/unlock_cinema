@@ -33,10 +33,23 @@ const app = express();
 console.log("FRONTEND_URL:", process.env.CLIENT_URL);
 console.log("NODE_ENV:", process.env.NODE_ENV);
 
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true
-}));
+const allowedOrigins = process.env.CLIENT_URL
+  .split(",")
+  .map((origin) => origin.trim());
+
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());

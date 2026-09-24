@@ -1,7 +1,7 @@
 import { closeLocationDrawer, setLocation } from "@/store/location/locationSlice";
 import api from "@/config/axios";
 import { useDispatch, useSelector } from "react-redux";
-import { Loader2, Search, Target, X } from "lucide-react";
+import { Loader2, Search, X } from "lucide-react";
 import { BiTargetLock } from "react-icons/bi";
 import { useEffect, useRef, useState } from "react";
 import useDebounce from "@/hooks/useDebouce";
@@ -66,6 +66,9 @@ const LocationDrawer = () => {
 
       await api.post("/api/location/set", { city });
 
+      // Persist city on frontend
+      localStorage.setItem("city", city);
+
       dispatch(setLocation(city));
       //  navigate(`/movies/${city.toLowerCase()}`);
 
@@ -93,7 +96,9 @@ const LocationDrawer = () => {
           });
 
           const city = res.data.city;
-          console.log(city);
+
+          localStorage.setItem("city", city);
+
 
           dispatch(setLocation(city)); // Redux update
         } catch (err) {
@@ -166,56 +171,56 @@ const LocationDrawer = () => {
           {!loading && query && suggestions.length === 0 && (
             <p className="p-2 text-gray-500">No city found</p>
           )}
-        
-      </div>
+
+        </div>
 
 
-      {/* auto detect location */}
-      <div className="flex flex-1 bg-white my-2 max-w-3xl   border p-2 text-primary w-full gap-1 " >
-        <button
-          onClick={() => handleLocationDetection()}
-          className="flex items-center px-3 gap-1 flex-1"
-        >
-          <BiTargetLock />Detect my location
-          {isLoading && (<Loader2 className="animate-spin" size={16} />
-          )}
-        </button>
+        {/* auto detect location */}
+        <div className="flex flex-1 bg-white my-2 max-w-3xl   border p-2 text-primary w-full gap-1 " >
+          <button
+            onClick={() => handleLocationDetection()}
+            className="flex items-center px-3 gap-1 flex-1"
+          >
+            <BiTargetLock />Detect my location
+            {isLoading && (<Loader2 className="animate-spin" size={16} />
+            )}
+          </button>
 
-      </div>
+        </div>
 
 
-      <div className="mt-2 bg-white mb-2">
-        <h2 className="text-start md:text-center px-5">Popular cities</h2>
-        <div className="grid grid-cols-4 md:grid-cols-10 whitespace-nowrap px-2">
-          {popularCities.map((city) => (
-            <button
-              key={city.id}
-              onClick={() => handleSelect(city.name)}
-              className="group flex flex-col items-center justify-center p-4 border-r border-b border-gray-100 hover:bg-red-50 transition-colors last:border-r-0"
-            >
-              {/* City Icon - Backend Driven */}
-              <div className="mb-2 w-12 h-12 flex items-center justify-center">
-                <img
-                  src={city.iconUrl}
-                  alt={city.name}
-                  className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all"
-                />
-              </div>
+        <div className="mt-2 bg-white mb-2">
+          <h2 className="text-start md:text-center px-5">Popular cities</h2>
+          <div className="grid grid-cols-4 md:grid-cols-10 whitespace-nowrap px-2">
+            {popularCities.map((city) => (
+              <button
+                key={city.id}
+                onClick={() => handleSelect(city.name)}
+                className="group flex flex-col items-center justify-center p-4 border-r border-b border-gray-100 hover:bg-red-50 transition-colors last:border-r-0"
+              >
+                {/* City Icon - Backend Driven */}
+                <div className="mb-2 w-12 h-12 flex items-center justify-center">
+                  <img
+                    src={city.iconUrl}
+                    alt={city.name}
+                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all"
+                  />
+                </div>
 
-              <span className="text-xs md:text-sm font-medium text-gray-700 text-center">
-                {city.name}
-              </span>
-            </button>
-          ))}
+                <span className="text-xs md:text-sm font-medium text-gray-700 text-center">
+                  {city.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* for now view all cities is not implemented */}
+        <div className="bg-white  w-full text-center pt-1">
+          <h2 className="text-md text-primary  pb-2 ">View all cities</h2>
+
         </div>
       </div>
-
-      {/* for now view all cities is not implemented */}
-      <div className="bg-white  w-full text-center pt-1">
-        <h2 className="text-md text-primary  pb-2 ">View all cities</h2>
-
-      </div>
-    </div>
 
 
     </div >
