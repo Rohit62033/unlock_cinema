@@ -5,11 +5,13 @@ import { ERROR_CODES } from '../../errors/errorCodes.js'
 import { User } from '../users/models/user.model.js'
 
 export const profileRepository = {
-
+  
+  async findById(userId) {
+    return User.findById(userId);
+  },
   async findProfileById(userId) {
     try {
-      console.log(userId);
-      
+
       return await User.findOne({
         _id: new mongoose.Types.ObjectId(userId),
         isDeleted: false
@@ -18,7 +20,7 @@ export const profileRepository = {
         select: 'name state'
       }).lean()
     } catch (error) {
-  console.error("CRITICAL DB ERROR:", error);      
+      console.error("CRITICAL DB ERROR:", error);
       throw new AppError('"failed to fetch user details', HTTP_STATUS.DATABASE_ERROR, ERROR_CODES.DATABASE_ERROR)
     }
   },

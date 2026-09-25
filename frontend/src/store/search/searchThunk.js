@@ -28,7 +28,7 @@ export const fetchSearchResults = createAsyncThunk(
   }
 )
 
-export const fetchTrendingSearches = createAsyncThunk(
+export const fetchTrendingSearches = createAsyncThunk( 
   "search/trendingSearch",
   async (_, { rejectWithValue }) => { 
     try {

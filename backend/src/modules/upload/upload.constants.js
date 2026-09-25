@@ -48,7 +48,7 @@ export const UPLOAD_TYPES = {
   avatar: {
 
     getFolder: ({ user }) =>
-      `users/${user.id}/avatar`,
+      `users/avatar`,
 
     allowedFormats: [
       'jpg',

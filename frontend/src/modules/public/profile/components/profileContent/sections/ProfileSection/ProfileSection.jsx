@@ -166,11 +166,6 @@ const ProfileSection = () => {
             type: "avatar",
           });
 
-        console.log(
-          "Cloudinary result:",
-          cloudinaryResult
-        );
-
         /*
          * Save Cloudinary information
          * in our database.

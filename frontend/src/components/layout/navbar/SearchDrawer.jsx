@@ -14,7 +14,7 @@ const SearchDrawer = () => {
   const { isDrawerOpen, query, results, loading, activeCategory, cache } = useSelector(
     (state) => state.search
   );
-  const {city} = useSelector((state)=>state.location)
+  const { city } = useSelector((state) => state.location)
 
   const debouncedQuery = useDebounce(query, 500);
 

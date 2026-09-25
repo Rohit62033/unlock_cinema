@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer.jsx";
-import BannerCarousel from "@/modules/public/home/components/BannerCarousel.jsx";
 import Navbar from "./navbar/Navbar.jsx";
 import SearchDrawer from "./navbar/SearchDrawer.jsx";
 import LocationDrawer from "@/modules/public/home/components/LocationDrawer.jsx";

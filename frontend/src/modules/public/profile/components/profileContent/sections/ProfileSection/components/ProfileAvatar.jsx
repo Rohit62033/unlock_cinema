@@ -4,10 +4,7 @@ import {
     AvatarImage,
 } from "@/components/ui/avatar";
 
-const ProfileAvatar = ({ user, className }) => {
-
-    console.log(user?.avatar?.url);
-    
+const ProfileAvatar = ({ user, className }) => {    
 
     const initials = 
         `${user?.firstName?.[0] ?? ""}${user?.lastName?.[0] ?? ""}`;

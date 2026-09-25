@@ -1,9 +1,9 @@
 import { HTTP_STATUS } from "../../constants/httpStatus.js"
 import { changePasswordService, forgotPasswordService, getMeService, googleCallbackService, loginService, logoutAllService, logoutService, otpResendService, refreshService, registerService, resetPasswordService, setPasswordService, verifyOtpService } from "./auth.service.js"
-import { clearAuthCookies, setAuthCookies } from "./utils/cookies.js"
 import { generateOAuthState } from '../../utils/generateOAuthState.js'
 import { tokenService } from "./utils/TokenService.js"
 import passport from "passport"
+import { clearAuthCookies, setAuthCookies } from "../../utils/cookies.js"
 
 
 
@@ -51,6 +51,7 @@ export const login = async (req, res, next) => {
 
 
     setAuthCookies(res, accessToken, refreshToken)
+    setA
 
     res.json({
       success: true,

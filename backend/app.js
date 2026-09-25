@@ -7,7 +7,7 @@ import passport from "./src/config/passport.config.js";
 // Route Imports
 import authRoutes from './src/modules/auth/auth.routes.js';
 import movieRoutes from './src/modules/movies/movie.routes.js';
-import uploadRoutes from './src/modules/uploadSignature/upload.routes.js';
+import uploadRoutes from './src/modules/upload/upload.routes.js';
 import cityRoutes from './src/modules/theatres/city/city.routes.js';
 import theatreRoutes from './src/modules/theatres/theatre/theatre.routes.js';
 import screenRoutes from './src/modules/theatres/screen/screen.routes.js';
