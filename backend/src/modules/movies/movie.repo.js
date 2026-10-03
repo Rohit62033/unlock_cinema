@@ -156,8 +156,8 @@ export const movieRepository = {
   //   limit = 20,
   // }) {
 
-  
-    
+
+
   //   const {
   //     city,
   //     language,
@@ -425,9 +425,6 @@ export const movieRepository = {
     limit
   }) {
 
-
-
-
     const {
       city,
       language,
@@ -440,7 +437,7 @@ export const movieRepository = {
       {
         $match: {
 
-          status: "scheduled",
+          status: "SCHEDULED",
 
           startTime: {
             $gte: new Date()
@@ -778,6 +775,17 @@ export const movieRepository = {
     }
 
     return query.lean();
+  },
+
+  async findActiveMovieById(movieId) {
+    return Movie.findOne({
+      _id: movieId,
+      isActive: true,
+      isDeleted: false,
+    }).populate({
+      path: "genres",
+      select: "name"
+    })
   }
 
 }

@@ -7,11 +7,13 @@ const TheatreInfo = ({
   theatre,
 }) => {
 
+  const defaultIcon = " https://assets-in.bmscdn.com/moviesmaster/movies-showtimes/v4/cinema-icon/default.png"
+  
   return (
     <div
       className="
         w-full
-        lg:w-[340px]
+        lg:w-85
 
         shrink-0
       "
@@ -30,7 +32,7 @@ const TheatreInfo = ({
 
           {/* LOGO */}
 
-          <div
+          <img
             className="
               w-11
               h-11
@@ -38,7 +40,9 @@ const TheatreInfo = ({
               bg-gray-100
               shrink-0
             "
+            src={theatre?.theatreLogo|| defaultIcon}
           />
+
 
           {/* INFO */}
 
@@ -56,7 +60,7 @@ const TheatreInfo = ({
 
             <div
               className="
-                mt-3
+                mt-
                 flex
                 flex-col
                 gap-2
@@ -74,12 +78,7 @@ const TheatreInfo = ({
                         gap-2
                       "
                     >
-                      <Info
-                        size={14}
-                        className="
-                          text-gray-500
-                        "
-                      />
+
 
                       <span
                         className="
@@ -89,6 +88,13 @@ const TheatreInfo = ({
                       >
                         {item}
                       </span>
+
+                      <Info
+                        size={13}
+                        className="
+                          text-gray-500
+                        "
+                      />
                     </div>
 
                   )
@@ -97,6 +103,7 @@ const TheatreInfo = ({
             </div>
 
           </div>
+
         </div>
 
         {/* FAVORITE */}

@@ -30,7 +30,7 @@ export const setCityCookie = (res, city) => {
   res.cookie("city", city, {
     httpOnly: false,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: "none",
+    sameSite: "lax",
     maxAge: 1000 * 60 * 60 * 24 * 365
   });
 }

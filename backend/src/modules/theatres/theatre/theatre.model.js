@@ -12,11 +12,21 @@ const theatreSchema = mongoose.Schema({
   address: {
     type: String
   },
-  isActive: { 
+  isActive: {
     type: Boolean,
     default: true
   },
-screens: [
+  theatreLogo: {
+    url: String,
+    public_id: String,
+  },
+  amenities: {
+    type: [String],
+    enum: ['Cancellation Available', 'Food Court'],
+    default: ['Cancellation Available']
+  },
+
+  screens: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Screen"

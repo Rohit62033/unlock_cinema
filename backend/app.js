@@ -22,6 +22,7 @@ import castRoute from './src/modules/cast/cast.routes.js'
 import personRoute from './src/modules/person/person.routes.js'
 import genreRoute from './src/modules/genre/routes/genre.routes.js'
 import profileRoute from './src/modules/profile/profile.routes.js'
+import showtimeRoutes from './src/modules/showtime/showtime.routes.js'
 
 // Middleware Imports
 import { errorHandler } from './src/middlewares/error.middleware.js';
@@ -75,6 +76,7 @@ app.use("/api/casts", castRoute)
 app.use("/api/persons", personRoute)
 app.use("/api/genres", genreRoute)
 app.use("/api/profile", profileRoute);
+app.use("/api", showtimeRoutes)
 
 
 

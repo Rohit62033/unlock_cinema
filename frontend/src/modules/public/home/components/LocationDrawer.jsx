@@ -23,7 +23,7 @@ const popularCities = [
 
 const LocationDrawer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const locationDrawerRef = useRef();
 
   const { city, isDrawerOpen, loading, suggestions } = useSelector((state) => state.location);
@@ -70,7 +70,10 @@ const LocationDrawer = () => {
       localStorage.setItem("city", city);
 
       dispatch(setLocation(city));
-      //  navigate(`/movies/${city.toLowerCase()}`);
+       navigate(`/movies/${city.toLowerCase()}`);
+
+      console.log(city);
+      
 
     } catch (err) {
       console.error(err);

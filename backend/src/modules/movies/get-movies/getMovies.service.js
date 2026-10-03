@@ -36,7 +36,7 @@ export const getMovies =
     } = normalizedQuery
 
     console.log(city);
-    
+
 
     /* CACHE KEY */
 
@@ -55,8 +55,8 @@ export const getMovies =
 
       })
 
-      
-      
+
+
 
     /* CACHE CHECK */
 
@@ -77,7 +77,7 @@ export const getMovies =
     console.log(
       'MOVIE CACHE MISS'
     )
-    
+
     /* FILTERS */
 
     const filters =
@@ -92,7 +92,7 @@ export const getMovies =
 
     /* FETCH */
 
-    
+
 
     const result =
       await movieRepository.findMoviesWithActiveShows({
@@ -103,6 +103,8 @@ export const getMovies =
 
         limit,
       })
+
+    console.log("movieRepo result", result);
 
 
     /* RESPONSE */

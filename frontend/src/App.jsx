@@ -12,8 +12,7 @@ const Loader = () => <div className="loader">Loading...</div>;
 
 function App() {
 
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch()  
   useEffect(() => {
     dispatch(fetchCurrentUser());
 
@@ -24,6 +23,7 @@ function App() {
 
     if (savedCity) {
       dispatch(setLocation(savedCity));
+
     } else {
       dispatch(openDrawer());
     }

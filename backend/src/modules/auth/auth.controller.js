@@ -51,7 +51,7 @@ export const login = async (req, res, next) => {
 
 
     setAuthCookies(res, accessToken, refreshToken)
-    setA
+    
 
     res.json({
       success: true,

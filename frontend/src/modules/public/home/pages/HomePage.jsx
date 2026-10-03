@@ -40,6 +40,9 @@ const HomePage = () => {
 
   useEffect(() => {
 
+    console.log(city);
+    
+
     if (city) {
 
       dispatch(
