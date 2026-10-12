@@ -3,13 +3,16 @@ import MobileHero from "./MobileHero";
 
 
 
-const HeroSection = ({ movie }) => {
+const HeroSection = ({ movie,handleBooking }) => {
   
   return (
    <>
       {/* Desktop */}
       <div className="hidden md:block">
-        <DesktopHero movie={movie} />
+        <DesktopHero 
+        movie={movie}
+        handleBooking={handleBooking}
+        />
       </div>
 
       {/* Mobile */}

@@ -6,8 +6,6 @@ export const getMovieShowtimes = async ({
   date
 }) => {
 
-  console.log({ date, city, movieId });
-
   const response = await api.get(
     `/api/movies/${movieId}/showtimes`,
     {

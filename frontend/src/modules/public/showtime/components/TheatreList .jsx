@@ -2,8 +2,8 @@ import TheatreCard from "./TheatreCard";
 
 const TheatreList = ({
   theatres,
+  onShowClick,
 }) => {
-
   return (
     <section
       className="
@@ -14,16 +14,13 @@ const TheatreList = ({
         space-y-4
       "
     >
-      {
-        theatres.map((theatre) => (
-
-          <TheatreCard
-            key={theatre.id}
-            theatre={theatre}
-          />
-
-        ))
-      }
+      {theatres.map((theatre) => (
+        <TheatreCard
+          key={theatre.id}
+          theatre={theatre}
+          onShowClick={onShowClick}
+        />
+      ))}
     </section>
   );
 };

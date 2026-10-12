@@ -19,10 +19,7 @@ export const getMovies =
     res
   ) => {
 
-    /* FETCH */
-
-    console.log(req.query);
-    
+    /* FETCH */    
 
     const response =
       await getMoviesService.getMovies(

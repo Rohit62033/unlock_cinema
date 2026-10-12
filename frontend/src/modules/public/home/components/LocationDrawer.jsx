@@ -70,10 +70,7 @@ const LocationDrawer = () => {
       localStorage.setItem("city", city);
 
       dispatch(setLocation(city));
-       navigate(`/movies/${city.toLowerCase()}`);
-
-      console.log(city);
-      
+       navigate(`/movies/${city.toLowerCase()}`);      
 
     } catch (err) {
       console.error(err);

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BookTicketButton = () => {
+const BookTicketButton = ({handleBooking}) => {
   return (
      <div
       className="
@@ -17,6 +17,7 @@ const BookTicketButton = () => {
     >
 
       <button
+      onClick={handleBooking}
         className="
           w-full
           bg-[#F84464]

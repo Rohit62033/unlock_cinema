@@ -8,15 +8,18 @@ import EmptyShows from "../components/EmptyShows ";
 import AvailabilityLegend from "../components/AvailabilityLegend ";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMovieShowtimes } from "../hooks/useMovieShowtime";
 
 const MovieShowPage = () => {
 
-  const { movieId } =
-    useParams();
+  const navigate = useNavigate()
 
-  const { city } = useSelector((state) => state.location)
+  const { movieId,slug } = useParams();
+
+  const { city } = useSelector(
+    (state) => state.location
+  );
 
   const [selectedDate, setSelectedDate] =
     useState(null);
@@ -32,24 +35,26 @@ const MovieShowPage = () => {
     date: selectedDate,
   });
 
-  const pageData =
-    response?.data;
+  const pageData = response?.data;
 
   useEffect(() => {
     if (
       pageData?.selectedDate &&
       !selectedDate
     ) {
-      setSelectedDate(
-        pageData.selectedDate
-      );
+      setSelectedDate(pageData.selectedDate);
     }
   }, [
     pageData?.selectedDate,
     selectedDate,
   ]);
 
- if (isLoading) {
+  const handleShowClick = (show) => {
+  
+    navigate( `/movies/${city}/${movieId}/${show.id}/seats`)
+  };
+
+  if (isLoading) {
     return <div>Loading showtimes...</div>;
   }
 
@@ -70,21 +75,16 @@ const MovieShowPage = () => {
 
       <StickyHeader
         dates={pageData.dates}
-        selectedDate={
-          pageData.selectedDate
-        }
-        setSelectedDate={
-          setSelectedDate
-        }
+        selectedDate={pageData.selectedDate}
+        setSelectedDate={setSelectedDate}
       />
 
       <AvailabilityLegend />
 
       {pageData.theatres.length > 0 ? (
         <TheatreList
-          theatres={
-            pageData.theatres
-          }
+          theatres={pageData.theatres}
+          onShowClick={handleShowClick}
         />
       ) : (
         <EmptyShows />

@@ -38,10 +38,7 @@ const HomePage = () => {
 
   const { recommendedMovies, recommendedMoviesLoading } = useSelector((state) => state.movies)
 
-  useEffect(() => {
-
-    console.log(city);
-    
+  useEffect(() => {    
 
     if (city) {
 

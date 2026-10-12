@@ -17,19 +17,13 @@ const LoginForm = ({ onRegister, onSuccess }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    console.log({ email, password });
 
     if (!email || !password) {
       return toast.error("All fields required")
 
-    }
-    console.log({email,password});
-    
+    }    
 
     const res = await dispatch(loginUser({ email, password }))
-
-    console.log(loginUser.fulfilled.match(res));
-
 
     if (loginUser.fulfilled.match(res)) {
       toast.success("Login successful")

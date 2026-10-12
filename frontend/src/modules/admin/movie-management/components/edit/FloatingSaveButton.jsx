@@ -1,8 +1,6 @@
 import React from 'react'
-import { FaRegSave } from 'react-icons/fa'
 
 const FloatingSaveButton = ({ isSubmitting }) => {
-  console.log('floating button called');
 
   return (
 

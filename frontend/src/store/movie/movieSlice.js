@@ -31,10 +31,7 @@ const movieSlice = createSlice({
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.loading = false
         state.filteredMovies =
-          action.payload.movies;
-
-          console.log(state.filteredMovies);
-          
+          action.payload.movies;          
 
         state.totalMovies =
           action.payload.totalMovies;

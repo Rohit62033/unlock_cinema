@@ -5,9 +5,6 @@ import MovieStatusBadge from '../shared/MovieStatusBadge'
 const MovieTableRow = ({ movie }) => {
   const navigate = useNavigate()
 
-  console.log(movie);
-
-
   return (
     <tr className="border-b hover:bg-gray-50">
       <td className="px-6 py-4">

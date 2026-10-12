@@ -1,18 +1,21 @@
 const ShowtimeButton = ({
   show,
+   onClick
 }) => {
 
   const isFastFilling =
     show.status ===
     "FAST_FILLING";
+    
 
   return (
     <button
+      onClick={() =>  onClick(show)}
       className="
         relative
 
-        w-[125px]
-        h-[52px]
+        w-31.25
+        h-13
 
         border
         rounded-sm
@@ -36,12 +39,11 @@ const ShowtimeButton = ({
           left-0
           top-0
           bottom-0
-          w-[4px]
+          w-1
 
-          ${
-            isFastFilling
-              ? "bg-yellow-500"
-              : "bg-green-500"
+          ${isFastFilling
+            ? "bg-yellow-500"
+            : "bg-green-500"
           }
         `}
       />

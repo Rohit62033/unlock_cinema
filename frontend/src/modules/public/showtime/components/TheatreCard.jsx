@@ -5,7 +5,11 @@ import TheatreInfo from "./TheatreInfo";
 
 const TheatreCard = ({
   theatre,
+  onShowClick,
 }) => {
+
+ 
+  
 
   return (
     <article
@@ -32,6 +36,7 @@ const TheatreCard = ({
 
         <ShowtimeGrid
           shows={theatre.shows}
+          onShowClick={onShowClick}
         />
       </div>
     </article>

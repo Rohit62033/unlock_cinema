@@ -14,9 +14,6 @@ export const createUploadSignature = (
 
   const user = req.user
 
-  
-  console.log("type",type,user.role);
-
   const data =
     uploadService.createUploadSignature({
       type, user

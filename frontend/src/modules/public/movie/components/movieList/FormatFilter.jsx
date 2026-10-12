@@ -29,9 +29,7 @@ const FormatFilter = () => {
             key={format}
             label={format}
             selected={selectedFormats.includes(format)}
-            onClick={() => { 
-              console.log(format);
-              
+            onClick={() => {               
               toggleValue('formats', format) }}
           />
 

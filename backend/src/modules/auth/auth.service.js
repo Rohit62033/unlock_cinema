@@ -107,8 +107,6 @@ export const registerService = async ({ username, email, password }) => {
 
 export const loginService = async ({ email, password }) => {
 
-  console.log({ email, password });
-
 
   const user = await userRepository.findByEmailWithPassword(email)
 
@@ -119,7 +117,6 @@ export const loginService = async ({ email, password }) => {
 
   // if (attempts > 3) throw new AppError("User is locked for 24 hours", HTTP_STATUS.FORBIDDEN, ERROR_CODES.FORBIDDEN)
 
-  console.log(password, user.password);
 
 
   const isPassMatched = await passwordHasher.compare(password, user.password)

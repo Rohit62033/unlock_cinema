@@ -29,8 +29,6 @@ export const updateProfile = async (req, res, next) => {
 
   try {
 
-    console.log(req.validatedBody);
-
     const profile = await profileService.updateProfile(req.user._id, req.validatedBody)
 
     return res.status(HTTP_STATUS.OK).json(

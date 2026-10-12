@@ -7,9 +7,12 @@ import { SeatLayout } from "./seatLayout.model.js"
 export const seatLayoutRepo = {
   async createSeatLayout(data) {
     try {
+    
       return await SeatLayout.create(data)
 
     } catch (error) {
+    
+      
       throw new AppError(
         "Failed to create screen",
         HTTP_STATUS.NOT_FOUND,
@@ -43,7 +46,7 @@ export const seatLayoutRepo = {
     try {
       return await SeatLayout.findByIdAndUpdate(id, data, { new: true })
     } catch (error) {
-      AppError(
+      new AppError(
         "Failed to update seat Layout ",
         HTTP_STATUS.CONFLICT,
         ERROR_CODES.DATABASE_ERROR
@@ -65,7 +68,7 @@ export const seatLayoutRepo = {
     try {
       return await SeatLayout.findById(id)
     } catch (error) {
-      AppError(
+    new  AppError(
         "Failed to fetch seat layout by id",
         HTTP_STATUS.CONFLICT,
         ERROR_CODES.DATABASE_ERROR

@@ -139,17 +139,20 @@ export const formatDuration = (minutes) => {
 };
 
 
-export const formatShowTime = (date) => {
-  if (!date) return "";
+export const formatShowTime = (
+  date,
+  timezone = DEFAULT_TIMEZONE
+) => {
+  if (!date || isNaN(new Date(date).getTime())) {
+    return null;
+  }
 
-  return new Date(date).toLocaleTimeString("en-IN", {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: timezone,
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
-
-    // Important for your Ranchi/India theatre data
-    timeZone: "Asia/Kolkata",
-  });
+  }).format(new Date(date));
 };
 
 
@@ -192,6 +195,10 @@ export const serializeTheatres = (shows = []) => {
         totalSeats: show.totalSeats,
         availableSeats: show.availableSeats,
       }),
+
+      language: show.language ?? "",
+
+      format: show.format ?? "",
     });
   }
 

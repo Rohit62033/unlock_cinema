@@ -4,9 +4,6 @@ export const buildMovieFilters = (query = {}) => {
     isDeleted: false,
   };
 
-  console.log(query);
-  
-
   /* STATUS */
   if (query.status) {
     filters.status = query.status;

@@ -2,9 +2,6 @@ import { Menu, X } from "lucide-react";
 
 const ProfileSidebarHeader = ({ isSidebarOpen, onOpen, onClose }) => {
 
-  console.log(onclick, onclose);
-
-
   return (
 
     <div className="pb-6 flex items-center justify-between">

@@ -20,7 +20,6 @@ const RegisterForm = ({ onLogin, onOtp, setFormData }) => {
 
   const handleRegister = async (e) => {
     e.preventDefault()
-    console.log(form);
 
     const res = await dispatch(registerUser(form))
 

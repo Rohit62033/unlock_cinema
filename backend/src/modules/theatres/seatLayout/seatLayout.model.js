@@ -13,7 +13,7 @@ const seatLayoutSchema = new mongoose.Schema({
           seatNumber:String,
           category:{
             type:String,
-            enum:["Silver", "Gold", "platinum", "Recliner"]
+            enum:["Silver", "Gold", "platinum", "Recliner","Premium"]
           },
           price:Number
         }

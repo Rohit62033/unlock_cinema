@@ -12,17 +12,13 @@ export const useCloudinaryUpload =
         const signatureData =
           await getUploadSignature(type);
 
-          console.log(signatureData);
           
 
         const result =
           await uploadToCloudinary(
             {file,
             signatureData}
-          );
-
-          console.log("use cloudinary upload result", result);
-          
+          );          
 
         return result;
       },

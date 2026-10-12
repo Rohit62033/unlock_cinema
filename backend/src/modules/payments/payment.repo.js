@@ -8,7 +8,7 @@ export const paymentRepository ={
     try {
       return await Payment.create(data)
     } catch (error) {
-       console.error("🔥 REAL DB ERROR:", error); 
+       console.error(" REAL DB ERROR:", error); 
       throw new AppError("Error while creating payment",HTTP_STATUS.INTERNAL_SERVER_ERROR,ERROR_CODES.DATABASE_ERROR)
     }
   }

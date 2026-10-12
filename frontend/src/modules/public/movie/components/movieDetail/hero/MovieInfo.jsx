@@ -1,22 +1,8 @@
 import RatingCard from "./RatingCard";
 import MovieMeta from "./MovieMeta";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { slugifyMovie } from "@/modules/public/movie/utils/slugifyMovie";
 
-const MovieInfo = ({ movie }) => {
-
-  const navigate = useNavigate()
-
-  const { city } = useSelector((state) => state.location)
-
-  const slug = slugifyMovie(movie.title)
-
-  const movieId = movie.id
-
-  const handleBooking = () => {
-    navigate(`/movies/${city?.toLowerCase()}/${slug}/showtimes/${movieId}`)
-  }
+const MovieInfo = ({ movie, handleBooking }) => {
+  
   return (
     <div className="text-white flex-1">
 

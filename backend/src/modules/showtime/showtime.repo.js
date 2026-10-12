@@ -9,12 +9,6 @@ export const findMovieShowtimes = async ({
   endDate,
 }) => {
 
-  console.log( movieId,
-  city,
-  startDate,
-  endDate,);
-  
-
     const movieObjectId =
    new mongoose.Types.ObjectId(movieId);
 
@@ -82,11 +76,15 @@ const result = await Show.aggregate([
 {
   $match: {
     "city.name": {
-      $regex: "^Ranchi$",
+      $regex: `^${city}$`,
       $options: "i",
     },
   },
 },
+
+
+
+
 
 ]);
 

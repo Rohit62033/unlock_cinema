@@ -4,7 +4,6 @@ import { createShowService, deleteShowService, getShowByIdService, getShowsByMov
 export const createShow = async (req, res, next) => {
 
   try {
-    console.log(req.body);
 
     const show = await createShowService(req.body)
 

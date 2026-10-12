@@ -1,3 +1,5 @@
+import { ShowSeat } from "./showSeat.model.js";
+
 export const getShowSeatsService = async (showId) => {
 
   const seats = await ShowSeat.find({ show: showId })

@@ -29,7 +29,6 @@ export const fetchMovieDetails = createAsyncThunk(
     try {
       const response = await fetchMovieDetailsAPI(movieId)
 
-      console.log("in movie thunk", response);
 
       return response
 

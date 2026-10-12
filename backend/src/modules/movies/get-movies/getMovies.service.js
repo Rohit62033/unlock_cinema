@@ -35,9 +35,6 @@ export const getMovies =
       skip,
     } = normalizedQuery
 
-    console.log(city);
-
-
     /* CACHE KEY */
 
     const cacheKey =
@@ -103,9 +100,6 @@ export const getMovies =
 
         limit,
       })
-
-    console.log("movieRepo result", result);
-
 
     /* RESPONSE */
 

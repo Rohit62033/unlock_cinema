@@ -1,8 +1,8 @@
 export const slugifyMovie = (title) => {
   return title
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g, "")
-    .replace(/\s+/g, "-");
+    ?.toLowerCase()
+    ?.replace(/[^a-z0-9 ]/g, "")
+    ?.replace(/\s+/g, "-");
 };
 
 // export const slugifyMovie = (title) => {

@@ -26,7 +26,6 @@ export const fetchRecommendedMoviesAPI = async (city) => {
 
 export const fetchMovieDetailsAPI = async (movieId) => {
   const response = await api.get(`/api/movies/${movieId}/details`)
-  console.log(response.data.data);
 
   return response.data.data
 }

@@ -24,7 +24,6 @@ export const loginUser = createAsyncThunk(
       return response
     } catch (error) {
       const message = error.response?.data?.error?.message || "login falied"
-      console.log(message);
 
       return rejectWithValue(message);
     }
@@ -66,7 +65,6 @@ export const verifyOtp = createAsyncThunk(
       return response
     } catch (error) {
        const message = error.response?.data?.error?.message || "login falied"
-      console.log(message);
 
       return rejectWithValue(message);
     }
@@ -92,7 +90,6 @@ export const resendOtp =createAsyncThunk(
   'auth/otpResend',
   async({email},{rejectWithValue})=>{
     try {
-      console.log(email);
       
       const response = await resendOtpAPI({email})
 

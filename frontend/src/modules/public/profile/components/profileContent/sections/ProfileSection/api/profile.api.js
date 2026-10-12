@@ -2,7 +2,6 @@ import api from "@/config/axios";
 
 export const getProfile = async () => {
   const response = await api.get("/api/profile")
-  console.log('proifle data',response.data.data);
   
   return response.data.data
 }

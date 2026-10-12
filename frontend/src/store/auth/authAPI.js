@@ -7,7 +7,6 @@ export const loginAPI = async (credentials) => {
 }
 
 export const registerAPI = async (credentials) => {
-  console.log(credentials);
 
   const response = await api.post('/api/auth/register', credentials)
 
@@ -27,10 +26,8 @@ export const logoutAPI = async () => {
 }
 
 export const verifyOtpAPI = async (credentials) => {
-  console.log(credentials);
 
   const response = await api.post('/api/auth/verify-otp', credentials)
-  console.log(response.data.user);
   
   return response.data.user
 }

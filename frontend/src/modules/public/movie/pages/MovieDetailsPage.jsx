@@ -11,6 +11,9 @@ import { useEffect } from "react";
 import { fetchMovieDetails } from "@/store/movie/movieThunk";
 import MovieDetailsSkeleton from "../skeletons/MovieDetailsSkeleton";
 
+import { useNavigate } from "react-router-dom";
+import { slugifyMovie } from "@/modules/public/movie/utils/slugifyMovie.js";
+
 
 
 const MovieDetailsPage = () => {
@@ -35,6 +38,7 @@ const MovieDetailsPage = () => {
 
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const { movieDetails, movieDetailsLoading, error } = useSelector((state) => state.movies)
 
@@ -48,9 +52,19 @@ const MovieDetailsPage = () => {
 
   }, [movieId, dispatch]);
 
+  const { city } = useSelector((state) => state.location)
+
+  const slug = slugifyMovie(movieDetails?.title)
+
+
+
+  const handleBooking = () => {
+    navigate(`/movies/${city?.toLowerCase()}/${slug}/showtimes/${movieId}`)
+  }
+
 
   if (movieDetailsLoading) {
-    return <div><MovieDetailsSkeleton/></div>;
+    return <div><MovieDetailsSkeleton /></div>;
   }
 
   if (error) {
@@ -72,6 +86,7 @@ const MovieDetailsPage = () => {
 
       <HeroSection
         movie={movieDetails.movie}
+        handleBooking={handleBooking}
       />
 
       <div className="max-w-7xl mx-auto px-4 py-10">
@@ -80,7 +95,7 @@ const MovieDetailsPage = () => {
           description={movieDetails?.movie.description}
         />
 
-        <BookTicketButton />
+        <BookTicketButton handleBooking={handleBooking}/>
 
         <OffersSection />
 

@@ -49,7 +49,6 @@ const searchSlice = createSlice({
       .addCase(fetchSearchResults.fulfilled, (state, action) => {
         state.loading = false
         const { data, query, fromCache } = action.payload;
-        console.log('Search result', data);
 
         state.results = data;
 

@@ -8,8 +8,6 @@ import { UPLOAD_TYPES } from "./upload.constants.js"
 export const createUploadSignature = ({
   type, user
 }) => {
-
-  console.log(type);
   
   const uploadConfig =
     UPLOAD_TYPES[type]
@@ -34,8 +32,6 @@ export const createUploadSignature = ({
   const folder = uploadConfig.getFolder
     ? uploadConfig.getFolder({ user })
     : uploadConfig.folder
-
-  console.log("Upload folder:", folder);
 
   return generateUploadSignature({
     folder

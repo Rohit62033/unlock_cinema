@@ -10,8 +10,6 @@ export const createScreenService = async (data) => {
   if (!theatre) throw new AppError("Theatre not found", HTTP_STATUS.NOT_FOUND, ERROR_CODES.NOT_FOUND)
 
   const duplicate = await screenRepository.findDuplicateScreen(data.name, data.theatre)
-
-  console.log(duplicate);
   
   if (duplicate) throw new AppError("Screen already exists in this theatre", HTTP_STATUS.BAD_REQUEST, ERROR_CODES.BAD_REQUEST)
 

@@ -33,7 +33,7 @@ export const fetchTrendingSearches = createAsyncThunk(
   async (_, { rejectWithValue }) => { 
     try {
       const res = await api.get('/api/movies/trending-search')
-      console.log(res.data);
+     
       return res.data.trendingSearch
 
     } catch (error) {

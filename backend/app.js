@@ -31,9 +31,6 @@ const app = express();
 
 // --- Middleware Configuration ---
 
-console.log("FRONTEND_URL:", process.env.CLIENT_URL);
-console.log("NODE_ENV:", process.env.NODE_ENV);
-
 const allowedOrigins = process.env.CLIENT_URL
   .split(",")
   .map((origin) => origin.trim());

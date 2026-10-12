@@ -12,6 +12,7 @@ import Events from "@/modules/public/stream/Events";
 import Plays from "@/modules/public/stream/Plays";
 import Sports from "@/modules/public/stream/Sports";
 import Activities from "@/modules/public/stream/Activities";
+import SeatLayoutPage from "@/modules/public/booking/pages/SeatLayoutPage";
 
 const PublicRoutes = () => {
   return (
@@ -40,6 +41,9 @@ const PublicRoutes = () => {
         path="/movies/:city/:slug/showtimes/:movieId"
         element={<MovieShowPage />}
       />
+
+      <Route path="/movies/:city/:slug/:showId/seats" element={<SeatLayoutPage />} />
+
 
       <Route path="/stream" element={<Stream />} />
       <Route path="/events" element={<Events />} />

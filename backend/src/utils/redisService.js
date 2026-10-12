@@ -7,7 +7,6 @@ export const redisService = {
 
     if (ttl) {
       await redisClient.set(key, data, { EX: ttl })
-      console.log(ttl);
 
     } else {
       await redisClient.set(key, data)

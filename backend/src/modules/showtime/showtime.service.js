@@ -56,8 +56,6 @@ export const getMovieShowtimes =
         endDate,
       });
 
-    // console.log("SHOWTIME REPOSITORY RESULT:");
-    // console.log(JSON.stringify(shows, null, 2));
 
     return serializeShowtimePage({
       movie,

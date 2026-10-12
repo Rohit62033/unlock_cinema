@@ -2,9 +2,9 @@ import React from 'react'
 import MovieInfo from './MovieInfo'
 import MoviePoster from './MoviePoster'
 
-const DesktopHero = ({movie}) => {
+const DesktopHero = ({ movie, handleBooking }) => {
   return (
-     <section className="relative h-120 overflow-hidden ">
+    <section className="relative h-120 overflow-hidden ">
 
       {/* Background */}
       <img
@@ -24,7 +24,10 @@ const DesktopHero = ({movie}) => {
 
         <MoviePoster poster={movie.poster} />
 
-        <MovieInfo movie={movie} />
+        <MovieInfo 
+        movie={movie}
+        handleBooking={handleBooking}
+         />
 
       </div>
 

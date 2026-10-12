@@ -13,7 +13,7 @@ dotenv.config()
 const seedDB = async () => {
   try {
     await mongoose.connect(`${process.env.MONGO_URI}/unlockcinema`)
-    console.log("✅ DB Connected")
+    console.log("DB Connected")
 
     // 🔥 Clean DB (optional but recommended for dev)
     await Movie.deleteMany()

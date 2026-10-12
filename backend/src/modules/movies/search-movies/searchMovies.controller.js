@@ -22,10 +22,7 @@ export const searchMovies =
   ) => {
 
     const { q } =
-      req.query
-
-      console.log("Logging query at search movie",q);
-      
+      req.query      
 
     /* FETCH */
 

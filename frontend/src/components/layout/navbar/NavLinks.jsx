@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 const NavLinks = () => {
 
   const {city} = useSelector((state)=>state.location)
-  console.log(city);
   
   return (
     <div className="flex flex-col   py-2 px-3 md:px-6 lg:px-8  bg-primary-bg ">

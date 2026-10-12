@@ -30,9 +30,6 @@ export const getSeatLayoutByscreen = async (req, res, next) => {
 export const getSeatLayoutById = async (req, res, next) => {
   try {
 
-    console.log(req.params.layoutId);
-    
-
     const data = await seatLayoutService.getSeatLayoutByIdService(req.params.layoutId)
 
     res.json({

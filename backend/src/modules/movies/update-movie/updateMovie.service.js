@@ -121,8 +121,6 @@ export const updateMovie =
         await deleteImage(
           oldPoster.public_id
         );
-
-        console.log("old poster delete");
         
       } catch (error) {
 
@@ -155,8 +153,6 @@ export const updateMovie =
         await deleteImage(
           oldBanner.public_id
         );
-
-        console.log("old banner delete");
         
 
       } catch (error) {

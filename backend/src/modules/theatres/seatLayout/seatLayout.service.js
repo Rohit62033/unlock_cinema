@@ -42,6 +42,7 @@ export const createSeatLayoutService = async (data) => {
 }
 
 export const getSeatLayoutByScreenService = async (screenId) => {
+  
   const layout = await seatLayoutRepo.findByScreen(screenId)
 
   if (!layout) throw new AppError("Layout not found", HTTP_STATUS.NOT_FOUND, ERROR_CODES.NOT_FOUND)
@@ -50,8 +51,6 @@ export const getSeatLayoutByScreenService = async (screenId) => {
 }
 
 export const getSeatLayoutByIdService = async (layoutId) => {
-
-  console.log(layoutId);
   
   const layout = await seatLayoutRepo.findSeatLayoutById(layoutId)
 

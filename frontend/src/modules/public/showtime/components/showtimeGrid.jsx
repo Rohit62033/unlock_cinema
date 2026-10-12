@@ -1,9 +1,13 @@
 import ShowtimeButton from
-"./ShowtimeButton";
+  "./ShowtimeButton";
 
 const ShowtimeGrid = ({
   shows,
+  onShowClick,
 }) => {
+
+
+
 
   return (
     <div
@@ -21,6 +25,7 @@ const ShowtimeGrid = ({
           <ShowtimeButton
             key={show.id}
             show={show}
+            onClick={onShowClick}
           />
 
         ))

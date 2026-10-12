@@ -80,9 +80,6 @@ const OtpForm = ({ onSuccess, formData, onBack }) => {
       verifyOtp({ email, otp: otpString })
     );
 
-    console.log(verifyOtp.fulfilled.match(res));
-
-
     if (verifyOtp.fulfilled.match(res)) {
 
       toast.success("Account created");
