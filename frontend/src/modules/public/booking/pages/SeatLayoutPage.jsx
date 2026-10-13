@@ -5,8 +5,8 @@ import { useSeatLayoutData } from "../hooks/useSeatSelection.js"
 
 import ShowInfoHeader from "../components/ShowInfoHeader";
 import SeatLegend from "../components/SeatLegend";
-import SeatMapCanvas from "../components/SeatMapCanvas";
-import BookingSummary from "../components/BookingSummary";
+import BookingSummary from "../components/BookingSummary.jsx"; 
+import SeatMapCanvas from "../components/SeatMapCanvas.jsx";
 
 const SeatLayoutPage = () => {
   const { showId } = useParams();
